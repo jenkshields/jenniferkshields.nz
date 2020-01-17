@@ -5,20 +5,32 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "babel-plugin-styled-components": "^1.10.6",
+    "dom-helpers": "^5.1.3",
     "gatsby": "^2.18.12",
-    "gatsby-image": "^2.2.34",
+    "gatsby-background-image": "^0.9.12",
+    "gatsby-image": "^2.2.38",
     "gatsby-plugin-manifest": "^2.2.31",
     "gatsby-plugin-offline": "^3.0.27",
     "gatsby-plugin-react-helmet": "^3.1.16",
     "gatsby-plugin-sharp": "^2.3.5",
+    "gatsby-plugin-styled-components": "^3.1.17",
     "gatsby-source-filesystem": "^2.1.40",
+    "gatsby-source-prismic": "^2.3.0-alpha.3",
     "gatsby-transformer-sharp": "^2.3.7",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-overlays": "^2.1.0",
+    "rebass": "^4.0.7",
+    "styled-components": "^5.0.0",
+    "typeface-spectral": "^0.0.72",
+    "typeface-spectral-sc": "^0.0.71"
   },
   "devDependencies": {
+    "babel-preset-gatsby": "^0.2.27",
+    "dotenv": "^8.2.0",
     "prettier": "^1.19.1"
   },
   "keywords": [
