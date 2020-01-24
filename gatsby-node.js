@@ -9,8 +9,22 @@ const path = require("path")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const galleryPage = await graphql(`
+  const pages = await graphql(`
     {
+      allPrismicAbout {
+        edges {
+          node {
+            uid
+          }
+        }
+      }
+      allPrismicEssay {
+        edges {
+          node {
+            uid
+          }
+        }
+      }
       allPrismicGallery {
         edges {
           node {
@@ -18,12 +32,21 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    }
-  `)
-
-  const essayPage = await graphql(`
-    {
-      allPrismicEssay {
+      allPrismicPoem {
+        edges {
+          node {
+            uid
+          }
+        }
+      }
+      allPrismicBlog {
+        edges {
+          node {
+            uid
+          }
+        }
+      }
+      allPrismicPortfolio {
         edges {
           node {
             uid
@@ -35,7 +58,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const galleryTemplate = path.resolve("src/templates/gallery.js")
   const essayTemplate = path.resolve("src/templates/essay.js")
-  galleryPage.data.allPrismicGallery.edges.forEach(edge => {
+  const aboutTemplate = path.resolve("src/templates/about.js")
+  const poemTemplate = path.resolve("src/templates/poem.js")
+  const blogTemplate = path.resolve("src/templates/blog.js")
+  const portfolioTemplate = path.resolve("src/templates/portfolio.js")
+  pages.data.allPrismicGallery.edges.forEach(edge => {
     createPage({
       path: `/${edge.node.uid}`,
       component: galleryTemplate,
@@ -45,10 +72,50 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  essayPage.data.allPrismicEssay.edges.forEach(edge => {
+  pages.data.allPrismicEssay.edges.forEach(edge => {
     createPage({
       path: `/${edge.node.uid}`,
       component: essayTemplate,
+      context: {
+        uid: edge.node.uid,
+      },
+    })
+  })
+
+  pages.data.allPrismicAbout.edges.forEach(edge => {
+    createPage({
+      path: `/${edge.node.uid}`,
+      component: aboutTemplate,
+      context: {
+        uid: edge.node.uid,
+      },
+    })
+  })
+
+  pages.data.allPrismicPoem.edges.forEach(edge => {
+    createPage({
+      path: `/${edge.node.uid}`,
+      component: poemTemplate,
+      context: {
+        uid: edge.node.uid,
+      },
+    })
+  })
+
+  pages.data.allPrismicBlog.edges.forEach(edge => {
+    createPage({
+      path: `/${edge.node.uid}`,
+      component: blogTemplate,
+      context: {
+        uid: edge.node.uid,
+      },
+    })
+  })
+
+  pages.data.allPrismicPortfolio.edges.forEach(edge => {
+    createPage({
+      path: `/${edge.node.uid}`,
+      component: portfolioTemplate,
       context: {
         uid: edge.node.uid,
       },
@@ -98,6 +165,24 @@ exports.createSchemaCustomization = ({ actions }) => {
             data: Data!
             type: String!
         }
+
+        type PrismicPoem implements Node & indexPosts {
+          uid: String!
+          data: Data!
+          type: String!
+      }
+
+      type PrismicPortfolio implements Node & indexPosts {
+        uid: String!
+        data: Data!
+        type: String!
+    }
+
+    type PrismicBlog implements Node & indexPosts {
+      uid: String!
+      data: Data!
+      type: String!
+  }
     `
   createTypes(typeDefs)
 }

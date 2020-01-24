@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import SEO from "../components/seo"
@@ -11,10 +11,6 @@ import StyledImageBlock from "../components/image-block"
 const EssayGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-
-  @media (min-width: 750px) {
-    grid-template-columns: 15vw 50vw;
-  }
 `
 
 const ImageContainer = styled.div`
@@ -23,46 +19,53 @@ const ImageContainer = styled.div`
 
 const EssayContainer = styled.div`
   @media (min-width: 750px) {
-    grid-column: 2;
     padding-left: 1vw;
   }
 `
 
-const Essay = ({ data }) => {
+const PortfolioLink = styled.div`
+  text-align: center;
+  font-size: 1.1rem;
+`
+
+const Portfolio = ({ data }) => {
   return (
     <>
-      <SEO title={data.prismicEssay.data.title.text} />
+      <SEO title={data.prismicPortfolio.data.title.text} />
       <EssayGrid>
         <Mobile>
           <StyledImageBlock
-            type={data.prismicEssay.type}
-            title={data.prismicEssay.data.title.text}
+            type={data.prismicPortfolio.type}
+            title={data.prismicPortfolio.data.title.text}
             featured_image={
-              data.prismicEssay.data.featured_image.localFile.childImageSharp
-                .fluid
+              data.prismicPortfolio.data.featured_image.localFile
+                .childImageSharp.fluid
             }
-            date={data.prismicEssay.data.date}
+            date={data.prismicPortfolio.data.date}
           />
         </Mobile>
-        <Desktop>
-          <ImageContainer>
-            <Img
-              fluid={
-                data.prismicEssay.data.featured_image.localFile.childImageSharp
-                  .fluid
-              }
-            />
-          </ImageContainer>
-        </Desktop>
         <EssayContainer>
           <Desktop>
-            <CategoryTitle>{data.prismicEssay.type}</CategoryTitle>
-            <Title>{data.prismicEssay.data.title.text}</Title>
-            <Date>{data.prismicEssay.data.date}</Date>
+            <CategoryTitle>{data.prismicPortfolio.type}</CategoryTitle>
+            <Title>{data.prismicPortfolio.data.title.text}</Title>
+            <Date>{data.prismicPortfolio.data.date}</Date>
+            <ImageContainer>
+              <Img
+                fluid={
+                  data.prismicPortfolio.data.featured_image.localFile
+                    .childImageSharp.fluid
+                }
+              />
+            </ImageContainer>
           </Desktop>
+          <PortfolioLink>
+            <a href={data.prismicPortfolio.data.link.url}>
+              &#8620; See the work.
+            </a>
+          </PortfolioLink>
           <Body
             dangerouslySetInnerHTML={{
-              __html: data.prismicEssay.data.body.html,
+              __html: data.prismicPortfolio.data.body.html,
             }}
           />
         </EssayContainer>
@@ -71,11 +74,11 @@ const Essay = ({ data }) => {
   )
 }
 
-export default Essay
+export default Portfolio
 
 export const pageQuery = graphql`
-  query EssayBySlug($uid: String!) {
-    prismicEssay(uid: { eq: $uid }) {
+  query PortfolioBySlug($uid: String!) {
+    prismicPortfolio(uid: { eq: $uid }) {
       data {
         title {
           text
@@ -93,6 +96,9 @@ export const pageQuery = graphql`
         }
         body {
           html
+        }
+        link {
+          url
         }
       }
       type

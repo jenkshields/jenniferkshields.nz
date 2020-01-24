@@ -11,10 +11,6 @@ import StyledImageBlock from "../components/image-block"
 const EssayGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-
-  @media (min-width: 750px) {
-    grid-template-columns: 15vw 50vw;
-  }
 `
 
 const ImageContainer = styled.div`
@@ -23,46 +19,43 @@ const ImageContainer = styled.div`
 
 const EssayContainer = styled.div`
   @media (min-width: 750px) {
-    grid-column: 2;
     padding-left: 1vw;
   }
 `
 
-const Essay = ({ data }) => {
+const Blog = ({ data }) => {
   return (
     <>
-      <SEO title={data.prismicEssay.data.title.text} />
+      <SEO title={data.prismicBlog.data.title.text} />
       <EssayGrid>
         <Mobile>
           <StyledImageBlock
-            type={data.prismicEssay.type}
-            title={data.prismicEssay.data.title.text}
+            type={data.prismicBlog.type}
+            title={data.prismicBlog.data.title.text}
             featured_image={
-              data.prismicEssay.data.featured_image.localFile.childImageSharp
+              data.prismicBlog.data.featured_image.localFile.childImageSharp
                 .fluid
             }
-            date={data.prismicEssay.data.date}
+            date={data.prismicBlog.data.date}
           />
         </Mobile>
-        <Desktop>
-          <ImageContainer>
-            <Img
-              fluid={
-                data.prismicEssay.data.featured_image.localFile.childImageSharp
-                  .fluid
-              }
-            />
-          </ImageContainer>
-        </Desktop>
         <EssayContainer>
           <Desktop>
-            <CategoryTitle>{data.prismicEssay.type}</CategoryTitle>
-            <Title>{data.prismicEssay.data.title.text}</Title>
-            <Date>{data.prismicEssay.data.date}</Date>
+            <CategoryTitle>{data.prismicBlog.type}</CategoryTitle>
+            <Title>{data.prismicBlog.data.title.text}</Title>
+            <Date>{data.prismicBlog.data.date}</Date>
+            <ImageContainer>
+              <Img
+                fluid={
+                  data.prismicBlog.data.featured_image.localFile.childImageSharp
+                    .fluid
+                }
+              />
+            </ImageContainer>
           </Desktop>
           <Body
             dangerouslySetInnerHTML={{
-              __html: data.prismicEssay.data.body.html,
+              __html: data.prismicBlog.data.body.html,
             }}
           />
         </EssayContainer>
@@ -71,11 +64,11 @@ const Essay = ({ data }) => {
   )
 }
 
-export default Essay
+export default Blog
 
 export const pageQuery = graphql`
-  query EssayBySlug($uid: String!) {
-    prismicEssay(uid: { eq: $uid }) {
+  query BlogBySlug($uid: String!) {
+    prismicBlog(uid: { eq: $uid }) {
       data {
         title {
           text

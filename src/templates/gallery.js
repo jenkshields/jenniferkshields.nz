@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Modal } from "react-overlays"
 import styled from "styled-components"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import StyledImageBlock from "../components/image-block"
 import { Mobile, Desktop } from "../components/media-queries"
@@ -21,7 +20,7 @@ const GalleryGrid = styled.div`
   grid-template-columns: 1fr;
 
   @media (min-width: 405px) {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-template-rows: repeat(auto);
     grid-gap: 5px;
     grid-auto-flow: dense;
@@ -213,7 +212,7 @@ const Gallery = ({ data }) => {
                     width: `calc(80vh * ${selectedImage.localFile.childImageSharp.fluid.aspectRatio})`,
                   }}
                 />
-                <LightboxCaption>{caption}</LightboxCaption>
+                {caption && <LightboxCaption>{caption}</LightboxCaption>}
               </LightboxImageContainer>
             </LightboxContentContainer>
           </LightboxModal>

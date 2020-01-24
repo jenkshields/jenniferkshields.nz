@@ -5,12 +5,12 @@ import SEO from "../components/seo"
 import { PostGrid, PostItem } from "../components/components"
 import StyledPostBlock from "../components/post-block"
 
-const Galleries = ({ data, location }) => {
+const Blog = ({ data, location }) => {
   return (
     <>
-      <SEO title="Galleries" />
+      <SEO title="Blog" />
       <PostGrid>
-        {data.allPrismicGallery.edges.map(({ node }) => (
+        {data.allPrismicBlog.edges.map(({ node }) => (
           <PostItem>
             <StyledPostBlock
               uid={node.uid}
@@ -25,11 +25,11 @@ const Galleries = ({ data, location }) => {
   )
 }
 
-export default Galleries
+export default Blog
 
 export const pageQuery = graphql`
   query {
-    allPrismicGallery(sort: { fields: data___date, order: DESC }) {
+    allPrismicBlog(sort: { fields: data___date, order: DESC }) {
       edges {
         node {
           uid

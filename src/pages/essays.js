@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { PostGrid, PostItem } from "../components/components"
 import StyledPostBlock from "../components/post-block"
@@ -9,7 +8,7 @@ import StyledPostBlock from "../components/post-block"
 const Essays = ({ data, location }) => {
   return (
     <>
-      <SEO title="Galleries" />
+      <SEO title="Essays" />
       <PostGrid>
         {data.allPrismicEssay.edges.map(({ node }) => (
           <PostItem>

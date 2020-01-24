@@ -28,41 +28,39 @@ const EssayContainer = styled.div`
   }
 `
 
-const Essay = ({ data }) => {
+const About = ({ data }) => {
   return (
     <>
-      <SEO title={data.prismicEssay.data.title.text} />
+      <SEO title={data.prismicAbout.data.title.text} />
       <EssayGrid>
         <Mobile>
           <StyledImageBlock
-            type={data.prismicEssay.type}
-            title={data.prismicEssay.data.title.text}
+            type={data.prismicAbout.type}
+            title={data.prismicAbout.data.title.text}
             featured_image={
-              data.prismicEssay.data.featured_image.localFile.childImageSharp
-                .fluid
+              data.prismicAbout.data.profile.localFile.childImageSharp.fluid
             }
-            date={data.prismicEssay.data.date}
+            date={data.prismicAbout.data.date}
           />
         </Mobile>
         <Desktop>
           <ImageContainer>
             <Img
               fluid={
-                data.prismicEssay.data.featured_image.localFile.childImageSharp
-                  .fluid
+                data.prismicAbout.data.profile.localFile.childImageSharp.fluid
               }
             />
           </ImageContainer>
         </Desktop>
         <EssayContainer>
           <Desktop>
-            <CategoryTitle>{data.prismicEssay.type}</CategoryTitle>
-            <Title>{data.prismicEssay.data.title.text}</Title>
-            <Date>{data.prismicEssay.data.date}</Date>
+            <CategoryTitle>{data.prismicAbout.type}</CategoryTitle>
+            <Title>{data.prismicAbout.data.title.text}</Title>
+            <Date>{data.prismicAbout.data.date}</Date>
           </Desktop>
           <Body
             dangerouslySetInnerHTML={{
-              __html: data.prismicEssay.data.body.html,
+              __html: data.prismicAbout.data.body.html,
             }}
           />
         </EssayContainer>
@@ -71,18 +69,16 @@ const Essay = ({ data }) => {
   )
 }
 
-export default Essay
+export default About
 
 export const pageQuery = graphql`
-  query EssayBySlug($uid: String!) {
-    prismicEssay(uid: { eq: $uid }) {
+  query About {
+    prismicAbout {
       data {
         title {
           text
         }
-        date(formatString: "Do MMM YYYY")
-        featured
-        featured_image {
+        profile {
           localFile {
             childImageSharp {
               fluid(maxWidth: 1600) {
@@ -95,7 +91,6 @@ export const pageQuery = graphql`
           html
         }
       }
-      type
     }
   }
 `

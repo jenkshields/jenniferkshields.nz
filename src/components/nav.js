@@ -60,11 +60,16 @@ const ModalGrid = styled.div`
 `
 
 const NavLink = styled(Link)`
+  background-image: none;
   font-family: "Spectral SC", serif;
   font-weight: 400;
   font-size: 1.2rem;
   color: #fff;
   text-decoration: none;
+
+  &:hover {
+    background-image: none;
+  }
 `
 
 const NavLinkButton = styled(CleanButton)`
@@ -100,10 +105,15 @@ const Bio = styled(Description)`
 
 const Nav = ({ siteTitle, bio, location }) => {
   const [show, setShow] = useState(false)
+  const [path, setPath] = useState(location)
 
   const handleClose = () => setShow(false)
 
-  const path = location
+  if (path !== location) {
+    handleClose()
+    setPath(location)
+  }
+
   console.log(path)
 
   return (

@@ -19,15 +19,20 @@ const HoverWrapper = styled(OuterWrapper)`
   background: rgb(129, 85, 155);
   background: linear-gradient(
     148deg,
-    rgba(129, 85, 155, 0.5) 0%,
-    rgba(140, 134, 170, 0.5) 59%,
-    rgba(164, 168, 209, 0.5) 100%
+    rgba(129, 85, 155, 0.8) 0%,
+    rgba(140, 134, 170, 0.8) 59%,
+    rgba(164, 168, 209, 0.8) 100%
   );
   transition: opacity 400ms ease;
 `
 
 const TitleLink = styled(Link)`
   padding-top: 1vh;
+  background-image: none;
+
+  &:hover {
+    background-image: none;
+  }
 `
 
 const Title = styled.h2`
@@ -51,6 +56,11 @@ const Type = styled(Link)`
   font-family: "Spectral SC", serif;
   align-self: center;
   text-decoration: none;
+  background-image: none;
+
+  &:hover {
+    background-image: none;
+  }
 `
 
 const StyledInnerWrapper = styled.div`

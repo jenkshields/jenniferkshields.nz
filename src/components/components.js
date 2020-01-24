@@ -1,4 +1,3 @@
-import React from "react"
 import styled from "styled-components"
 
 export const CategoryTitle = styled.h3`
@@ -40,10 +39,11 @@ export const PostGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  grid-gap: 20px;
+  grid-gap: 10px;
 
   @media (min-width: 750px) {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-auto-flow: dense;
   }
 `
 
@@ -52,7 +52,7 @@ export const PostItem = styled.div`
   justify-self: center;
 
   @media (min-width: 750px) {
-    width: 33vw;
+    width: 30vw;
     justify-self: start;
   }
 `

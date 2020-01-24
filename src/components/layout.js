@@ -12,8 +12,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import styled, { createGlobalStyle } from "styled-components"
 
 import Nav from "./nav.js"
-import StyledImageBlock from "./image-block.js"
-import { Mobile } from "../components/media-queries"
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -25,6 +23,22 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Spectral SC', serif;
     font-weight: 500;
+  }
+
+  a {
+    text-decoration: none;
+    color: #111;
+    background-image: linear-gradient( transparent 0%, transparent calc(50% - 9px), rgba(129, 85, 155, 0.35) calc(50% - 9px), rgba(129, 85, 155, 0.35) 100% );
+    transition: background-position 120ms ease-in-out, padding 120ms ease-in-out;
+    background-size: 100% 200%;
+    background-position: 0 0;
+    word-break: break-word;
+  }
+  
+  a:hover {
+    color: #fff;
+    background-image: linear-gradient( transparent 0%, transparent calc(50% - 9px), rgba(129, 85, 155, 1) calc(50% - 9px), rgba(164, 168, 209, 1) 100% );
+    background-position: 0 100%;
   }
 `
 

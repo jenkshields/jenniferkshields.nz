@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "jenniferkshields-nz",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A personal website for Jennifer K Shields",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jennifer K Shields <jennifer@jenniferkshields.nz",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "dom-helpers": "^5.1.3",
