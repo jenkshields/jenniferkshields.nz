@@ -78,6 +78,14 @@ const Blog = ({ data }) => {
                       }}
                     />
                   )
+                case "blockquote":
+                  return (
+                    <BlockQuote
+                      dangerouslySetInnerHTML={{
+                        __html: slice.primary.quote.html,
+                      }}
+                    />
+                  )
                 default:
                   return null
               }
@@ -124,6 +132,14 @@ export const pageQuery = graphql`
           ... on PrismicBlogBody1Text {
             primary {
               text {
+                html
+              }
+            }
+            slice_type
+          }
+          ... on PrismicBlogBody1Blockquote {
+            primary {
+              quote {
                 html
               }
             }
