@@ -4,7 +4,7 @@ import { Modal } from "react-overlays"
 import { Link } from "gatsby"
 import { Mobile, Desktop } from "../components/media-queries"
 
-import { Title, Description } from "../components/components"
+import { SiteTitle, Description } from "../components/components"
 import menu from "../images/menu.svg"
 
 const Grid = styled.div`
@@ -191,7 +191,7 @@ const Nav = ({ siteTitle, bio, location }) => {
         <NavColumn>
           <div>
             <NavLink to="/">
-              <Title>{siteTitle}</Title>
+              <SiteTitle>{siteTitle}</SiteTitle>
             </NavLink>
             <Bio>{bio}</Bio>
           </div>

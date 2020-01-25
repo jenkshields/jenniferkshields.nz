@@ -8,6 +8,11 @@ export const Title = styled.h2`
   text-align: center;
 `
 
+export const SiteTitle = styled.h1`
+  text-align: center;
+  font-size: 1.5em;
+`
+
 export const Date = styled.p`
   text-align: center;
   font-size: 0.8rem;
