@@ -6,6 +6,8 @@
 
 // You can delete this file if you're not using it
 
+import React from "react"
+
 const transitionDelay = 500
 
 export const wrapPageElement = ({ element, props }) => {
