@@ -40,6 +40,10 @@ const GlobalStyle = createGlobalStyle`
     background-image: linear-gradient( transparent 0%, transparent calc(50% - 9px), rgba(129, 85, 155, 1) calc(50% - 9px), rgba(164, 168, 209, 1) 100% );
     background-position: 0 100%;
   }
+
+  strong {
+    font-weight: 400;
+  }
 `
 
 const Grid = styled.div`

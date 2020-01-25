@@ -56,3 +56,7 @@ export const PostItem = styled.div`
     justify-self: start;
   }
 `
+export const BlockQuote = styled.p`
+  padding-left: 5px;
+  font-size: 1.2rem;
+`

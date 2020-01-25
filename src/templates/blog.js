@@ -4,7 +4,13 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import SEO from "../components/seo"
-import { Title, Date, CategoryTitle, Body } from "../components/components"
+import {
+  Title,
+  Date,
+  CategoryTitle,
+  Body,
+  BlockQuote,
+} from "../components/components"
 import { Mobile, Desktop } from "../components/media-queries"
 import StyledImageBlock from "../components/image-block"
 
@@ -53,11 +59,30 @@ const Blog = ({ data }) => {
               />
             </ImageContainer>
           </Desktop>
-          <Body
-            dangerouslySetInnerHTML={{
-              __html: data.prismicBlog.data.body.html,
-            }}
-          />
+          <Body>
+            {data.prismicBlog.data.body1.map(slice => {
+              switch (slice.slice_type) {
+                case "text":
+                  return (
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: slice.primary.text.html,
+                      }}
+                    />
+                  )
+                case "custom_embed":
+                  return (
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: slice.primary.embed.text,
+                      }}
+                    />
+                  )
+                default:
+                  return null
+              }
+            })}
+          </Body>
         </EssayContainer>
       </EssayGrid>
     </>
@@ -86,6 +111,24 @@ export const pageQuery = graphql`
         }
         body {
           html
+        }
+        body1 {
+          ... on PrismicBlogBody1CustomEmbed {
+            primary {
+              embed {
+                text
+              }
+            }
+            slice_type
+          }
+          ... on PrismicBlogBody1Text {
+            primary {
+              text {
+                html
+              }
+            }
+            slice_type
+          }
         }
       }
       type
