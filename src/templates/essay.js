@@ -37,21 +37,13 @@ const Essay = ({ data }) => {
           <StyledImageBlock
             type={data.prismicEssay.type}
             title={data.prismicEssay.data.title.text}
-            featured_image={
-              data.prismicEssay.data.featured_image.localFile.childImageSharp
-                .fluid
-            }
+            featured_image={data.prismicEssay.data.featured_image.fluid}
             date={data.prismicEssay.data.date}
           />
         </Mobile>
         <Desktop>
           <ImageContainer>
-            <Img
-              fluid={
-                data.prismicEssay.data.featured_image.localFile.childImageSharp
-                  .fluid
-              }
-            />
+            <Img fluid={data.prismicEssay.data.featured_image.fluid} />
           </ImageContainer>
         </Desktop>
         <EssayContainer>
@@ -89,6 +81,9 @@ export const pageQuery = graphql`
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
+          }
+          fluid(maxWidth: 1600) {
+            ...GatsbyPrismicImageFluid
           }
         }
         body {

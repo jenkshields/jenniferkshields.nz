@@ -118,9 +118,7 @@ export const pageQuery = graphql`
           }
         }
         body {
-          html
-        }
-        body1 {
+          __typename
           ... on PrismicBlogBody1CustomEmbed {
             primary {
               embed {

@@ -134,24 +134,57 @@ exports.createSchemaCustomization = ({ actions }) => {
         }
 
         type Data {
-            title: Title!
+            title: Title
             date: Date! @dateformat
             featured: String!
             featured_image: Featured_image!
             body: Body!
+            poem: Poem!
+            description: Description!
+            images: Images!
+            link: Link!
         }
 
         type Title {
-            text: String!
+            text: String
         }
 
         type Featured_image {
+            fluid(maxWidth: Int): File
             localFile: File
         }
         
 
         type Body {
             html: String!
+        }
+
+        type Poem {
+          html: String!
+        }
+
+        type Description {
+          html: String!
+        }
+
+        type Images {
+          image: Image!
+          caption: Caption
+          size: String
+        }
+
+        type Image {
+          localFile: File
+          fluid: File
+          alt: String
+        }
+
+        type Caption {
+          text: String
+        }
+
+        type Link {
+          url: String
         }
 
         type PrismicGallery implements Node & indexPosts {
