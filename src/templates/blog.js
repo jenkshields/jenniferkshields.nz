@@ -117,9 +117,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        body {
-          html
-        }
         body1 {
           ... on PrismicBlogBody1CustomEmbed {
             primary {
