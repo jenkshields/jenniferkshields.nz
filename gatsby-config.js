@@ -25,14 +25,6 @@ module.exports = {
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
     },
-    {
-      resolve: `gatsby-plugin-prismic-preview`,
-      options: {
-        repositoryName: `jenniferkshieldsnz`,
-        linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
-        path: `/preview`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-image`,
