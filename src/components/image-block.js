@@ -69,6 +69,10 @@ const StyledImageBlock = styled(ImageBlock)`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  &:before {
+    height: 35vh;
+  }
 `
 
 export default StyledImageBlock
