@@ -71,7 +71,7 @@ const StyledImageBlock = styled(ImageBlock)`
   background-size: cover;
 
   &:before {
-    height: 35vh;
+    height: 35vh !important;
   }
 `
 
