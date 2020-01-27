@@ -72,6 +72,7 @@ const StyledImageBlock = styled(ImageBlock)`
 
   &:before {
     height: 35vh !important;
+    top: unset !important;
   }
 `
 

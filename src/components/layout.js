@@ -77,6 +77,13 @@ const ContentContainer = styled.div`
   }
 `
 
+const Footer = styled.footer`
+  text-align: center;
+  @media (min-width: 750px) {
+    grid-column: 2;
+  }
+`
+
 const duration = 0.5
 
 const variants = {
@@ -135,12 +142,12 @@ const Layout = ({ children, location }) => {
             <ContentContainer>{children}</ContentContainer>
           </motion.main>
         </AnimatePresence>
+        <Footer>
+          © {new Date().getFullYear()}, Built by
+          {` `}
+          <a href="https://glitterbox.nz">Glitterbox Pursuits</a>
+        </Footer>
       </Grid>
-      <footer>
-        © {new Date().getFullYear()}, Built by
-        {` `}
-        <a href="https://glitterbox.nz">Glitterbox Pursuits</a>
-      </footer>
     </>
   )
 }

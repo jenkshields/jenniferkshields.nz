@@ -47,6 +47,16 @@ export const PostGrid = styled.div`
   grid-gap: 10px;
 
   @media (min-width: 750px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-flow: dense;
+  }
+
+  @media (min-width: 800px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-flow: dense;
+  }
+
+  @media (min-width: 1075px) {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-auto-flow: dense;
   }
