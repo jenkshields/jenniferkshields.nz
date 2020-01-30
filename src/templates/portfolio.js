@@ -58,11 +58,13 @@ const Portfolio = ({ data }) => {
               />
             </ImageContainer>
           </Desktop>
-          <PortfolioLink>
-            <a href={data.prismicPortfolio.data.link.url}>
-              &#8620; See the work.
-            </a>
-          </PortfolioLink>
+          {data.prismicPortolio.data.link.url && (
+            <PortfolioLink>
+              <a href={data.prismicPortfolio.data.link.url}>
+                &#8620; See the work.
+              </a>
+            </PortfolioLink>
+          )}
           <Body
             dangerouslySetInnerHTML={{
               __html: data.prismicPortfolio.data.body.html,
