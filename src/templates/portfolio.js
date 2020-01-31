@@ -58,7 +58,7 @@ const Portfolio = ({ data }) => {
               />
             </ImageContainer>
           </Desktop>
-          {data.prismicPortolio.data.link.url && (
+          {data.prismicPortfolio.data.link.url && (
             <PortfolioLink>
               <a href={data.prismicPortfolio.data.link.url}>
                 &#8620; See the work.
