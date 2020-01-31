@@ -4,7 +4,13 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import SEO from "../components/seo"
-import { Title, Date, CategoryTitle, Body } from "../components/components"
+import {
+  Title,
+  Date,
+  CategoryTitle,
+  Body,
+  BlockQuote,
+} from "../components/components"
 import { Mobile, Desktop } from "../components/media-queries"
 import StyledImageBlock from "../components/image-block"
 
@@ -60,11 +66,30 @@ const Essay = ({ data }) => {
             <Title>{data.prismicEssay.data.title.text}</Title>
             <Date>{data.prismicEssay.data.date}</Date>
           </Desktop>
-          <Body
-            dangerouslySetInnerHTML={{
-              __html: data.prismicEssay.data.body.html,
-            }}
-          />
+          <Body>
+            {data.prismicEssay.data.essay_slice.map(slice => {
+              switch (slice.slice_type) {
+                case "text":
+                  return (
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: slice.primary.text.html,
+                      }}
+                    />
+                  )
+                case "blockquote":
+                  return (
+                    <BlockQuote
+                      dangerouslySetInnerHTML={{
+                        __html: slice.primary.quote.html,
+                      }}
+                    />
+                  )
+                default:
+                  return null
+              }
+            })}
+          </Body>
         </EssayContainer>
       </EssayGrid>
     </>
@@ -91,8 +116,23 @@ export const pageQuery = graphql`
             }
           }
         }
-        body {
-          html
+        essay_slice {
+          ... on PrismicEssayEssaySliceText {
+            primary {
+              text {
+                html
+              }
+            }
+            slice_type
+          }
+          ... on PrismicEssayEssaySliceBlockquote {
+            primary {
+              quote {
+                html
+              }
+            }
+            slice_type
+          }
         }
       }
       type

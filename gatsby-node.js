@@ -138,7 +138,7 @@ exports.createSchemaCustomization = ({ actions }) => {
             date: Date! @dateformat
             featured: String!
             featured_image: Featured_image!
-            body: Body!
+            body: Body
         }
 
         type Title {
@@ -148,10 +148,9 @@ exports.createSchemaCustomization = ({ actions }) => {
         type Featured_image {
             localFile: File
         }
-        
 
         type Body {
-            html: String!
+          html: String!
         }
 
         type PrismicGallery implements Node & indexPosts {
