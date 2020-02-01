@@ -44,6 +44,10 @@ const GlobalStyle = createGlobalStyle`
   strong {
     font-weight: 400;
   }
+
+  .block-img > img {
+    width: 100%;
+  }
 `
 
 const Grid = styled.div`

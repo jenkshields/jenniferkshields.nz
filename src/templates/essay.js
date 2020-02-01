@@ -31,6 +31,7 @@ const EssayContainer = styled.div`
   @media (min-width: 750px) {
     grid-column: 2;
     padding-left: 1vw;
+    width: 50vw;
   }
 `
 
