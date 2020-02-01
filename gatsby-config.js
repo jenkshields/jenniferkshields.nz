@@ -30,6 +30,13 @@ module.exports = {
     `gatsby-image`,
     `gatsby-plugin-styled-components`,
     {
+      resolve: `gatsby-plugin-fathom`,
+      options: {
+        trackingUrl: `fathom.jenniferkshields.nz`,
+        siteId: `WTGEJ`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
