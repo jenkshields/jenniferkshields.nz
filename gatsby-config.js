@@ -29,6 +29,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-image`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-netlify-cache`,
     {
       resolve: `gatsby-plugin-fathom`,
       options: {

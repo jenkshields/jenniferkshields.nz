@@ -7086,6 +7086,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fs-extra@npm:^7.0.0":
+  version: 7.0.1
+  resolution: "fs-extra@npm:7.0.1"
+  dependencies:
+    graceful-fs: ^4.1.2
+    jsonfile: ^4.0.0
+    universalify: ^0.1.0
+  checksum: a1a866c3e02481a39b68f183e3f96497a80d08368ac09f3af5e5939112d3fb61b757113690e0729f8d13a804d7b618608b38dd38be187e4beb3441418dce360d
+  languageName: node
+  linkType: hard
+
 "fs-extra@npm:^8.1.0":
   version: 8.1.0
   resolution: "fs-extra@npm:8.1.0"
@@ -7361,6 +7372,18 @@ fsevents@~2.1.1:
   peerDependencies:
     gatsby: ^2.4.0
   checksum: d3757de1df883afe305f7edc72f207a4202979e3bd7260ccbfa25ca45fbbb30066a43edaee2dfb34310dd0b5c6c242c5d0d06b9c07ad027ff77ff865ec35804e
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-netlify-cache@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "gatsby-plugin-netlify-cache@npm:1.2.0"
+  dependencies:
+    babel-runtime: ^6.26.0
+    fs-extra: ^7.0.0
+  peerDependencies:
+    gatsby: ^2.0.0
+  checksum: ea051fe87042447824627755ef2d0f3497584810ca79be98666c90ce77da59ac91247fefec32e83a48dfc44f5fe336133193fe7f11f4de91f59fffec98c41311
   languageName: node
   linkType: hard
 
@@ -9731,6 +9754,7 @@ fsevents@~2.1.1:
     gatsby-image: ^2.2.38
     gatsby-plugin-fathom: ^1.2.0
     gatsby-plugin-manifest: ^2.2.31
+    gatsby-plugin-netlify-cache: ^1.2.0
     gatsby-plugin-offline: ^3.0.27
     gatsby-plugin-react-helmet: ^3.1.16
     gatsby-plugin-sharp: ^2.3.5
