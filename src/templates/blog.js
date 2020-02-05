@@ -32,11 +32,14 @@ const EssayContainer = styled.div`
 const Blog = ({ data, location }) => {
   return (
     <>
-      {data.prismicBlog.data.meta_description ? (
+      {data.prismicBlog.data.meta_description &&
+      data.prismicBlog.data.meta_image ? (
         <SEO
           title={data.prismicBlog.data.title.text}
           description={data.prismicBlog.data.meta_description.text}
-          image={data.prismicBlog.data.featured_image.childImageSharp.fluid.src}
+          image={
+            data.prismicBlog.data.meta_image.localFile.childImageSharp.fluid.src
+          }
           pathname={location.pathname}
         />
       ) : (
