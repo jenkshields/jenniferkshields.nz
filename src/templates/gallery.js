@@ -99,7 +99,7 @@ const LightboxButton = styled(UnstyledButton)`
 
 const CloseImg = styled.img``
 
-const Gallery = ({ data }) => {
+const Gallery = ({ data, location }) => {
   const [show, setShow] = useState(false)
   const [selectedImage, setImage] = useState(null)
   const [caption, setCaption] = useState("")
@@ -135,7 +135,36 @@ const Gallery = ({ data }) => {
 
   return (
     <>
-      <SEO title={title} />
+      {data.prismicGallery.data.meta_description ? (
+        <SEO
+          title={title}
+          description={data.prismicGallery.data.meta_description.text}
+          image={
+            data.prismicGallery.data.meta_image.localFile.childImageSharp.fluid
+              .src
+          }
+          pathname={location.pathname}
+        />
+      ) : (
+        <SEO
+          title={title}
+          description={data.prismicGallery.data.description.text}
+          image={
+            data.prismicGallery.data.meta_image.localFile.childImageSharp.fluid
+              .src
+          }
+          pathname={location.pathname}
+        />
+      )}
+      <SEO
+        title={title}
+        description={data.prismicGallery.data.description.text}
+        image={
+          data.prismicGallery.data.meta_image.localFile.childImageSharp.fluid
+            .src
+        }
+        pathname={location.pathname}
+      />
       <Mobile>
         <StyledImageBlock
           type={type}
@@ -233,6 +262,7 @@ export const pageQuery = graphql`
         date(formatString: "Do MMM YYYY")
         description {
           html
+          text
         }
         featured_image {
           localFile {
@@ -242,6 +272,18 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+        meta_image {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+        meta_description {
+          text
         }
         images {
           image {

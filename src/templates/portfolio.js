@@ -28,10 +28,18 @@ const PortfolioLink = styled.div`
   font-size: 1.1rem;
 `
 
-const Portfolio = ({ data }) => {
+const Portfolio = ({ data, location }) => {
   return (
     <>
-      <SEO title={data.prismicPortfolio.data.title.text} />
+      <SEO
+        title={data.prismicPortfolio.data.title.text}
+        description={data.prismicPortfolio.data.meta_description.text}
+        image={
+          data.prismicPortfolio.data.meta_image.localFile.childImageSharp.fluid
+            .src
+        }
+        pathname={location.pathname}
+      />
       <EssayGrid>
         <Mobile>
           <StyledImageBlock
@@ -95,6 +103,18 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+        meta_image {
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+        meta_description {
+          text
         }
         body {
           html

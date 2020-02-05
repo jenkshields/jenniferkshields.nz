@@ -35,10 +35,17 @@ const EssayContainer = styled.div`
   }
 `
 
-const Essay = ({ data }) => {
+const Essay = ({ data, location }) => {
   return (
     <>
-      <SEO title={data.prismicEssay.data.title.text} />
+      <SEO
+        title={data.prismicEssay.data.title.text}
+        image={
+          data.prismicEssay.data.meta_image.localFile.childImageSharp.fluid.src
+        }
+        pathname={location.pathname}
+        description={data.prismicEssay.data.meta_description.text}
+      />
       <EssayGrid>
         <Mobile>
           <StyledImageBlock
@@ -116,6 +123,18 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+        meta_image {
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+        meta_description {
+          text
         }
         essay_slice {
           ... on PrismicEssayEssaySliceText {

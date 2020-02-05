@@ -31,7 +31,12 @@ const EssayContainer = styled.div`
 const About = ({ data }) => {
   return (
     <>
-      <SEO title={data.prismicAbout.data.title.text} />
+      <SEO
+        title={data.prismicAbout.data.title.text}
+        image={
+          data.prismicAbout.data.profile.localFile.childImageSharp.fluid.src
+        }
+      />
       <EssayGrid>
         <Mobile>
           <StyledImageBlock

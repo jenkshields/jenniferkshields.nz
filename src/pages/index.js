@@ -21,7 +21,12 @@ const ImageBlockContainer = styled.div`
 
 const IndexPage = ({ data }) => (
   <>
-    <SEO title="Jennifer K. Shields" />
+    <SEO
+      title="Jennifer K. Shields"
+      image={
+        data.prismicHomepage.data.meta_image.localFile.childImageSharp.fluid.src
+      }
+    />
     <IndexGrid>
       <Mobile>
         <ImageBlockContainer>
@@ -85,6 +90,15 @@ export const PageQuery = graphql`
         }
         bio {
           text
+        }
+        meta_image {
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
         }
       }
     }

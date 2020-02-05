@@ -7,6 +7,8 @@ module.exports = {
     title: `Jennifer K. Shields`,
     description: `Photographer, organiser, web developer.`,
     author: `Jennifer K. Shields`,
+    image: "/images/bio-bg.jpg",
+    url: "https://jenniferkshields.nz",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

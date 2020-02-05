@@ -29,10 +29,30 @@ const EssayContainer = styled.div`
   }
 `
 
-const Blog = ({ data }) => {
+const Blog = ({ data, location }) => {
   return (
     <>
-      <SEO title={data.prismicBlog.data.title.text} />
+      {data.prismicBlog.data.meta_description &&
+      data.prismicBlog.data.meta_image ? (
+        <SEO
+          title={data.prismicBlog.data.title.text}
+          description={data.prismicBlog.data.meta_description.text}
+          image={data.prismicBlog.data.meta_image.childImageSharp.fluid.src}
+          pathname={location.pathname}
+        />
+      ) : (
+        <SEO
+          title={data.prismicBlog.data.title.text}
+          image={data.prismicBlog.data.featured_image.childImageSharp.fluid.src}
+          pathname={location.pathname}
+        />
+      )}
+      <SEO
+        title={data.prismicBlog.data.title.text}
+        description={data.prismicBlog.data.meta_description.text}
+        image={data.prismicBlog.data.featured_image.childImageSharp.fluid.src}
+        pathname={location.pathname}
+      />
       <EssayGrid>
         <Mobile>
           <StyledImageBlock
@@ -105,6 +125,18 @@ export const pageQuery = graphql`
       data {
         title {
           text
+        }
+        meta_description {
+          text
+        }
+        meta_image {
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
         }
         date(formatString: "Do MMM YYYY")
         featured

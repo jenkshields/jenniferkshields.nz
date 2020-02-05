@@ -19,10 +19,17 @@ const EssayContainer = styled.div`
   }
 `
 
-const Poem = ({ data }) => {
+const Poem = ({ data, location }) => {
   return (
     <>
-      <SEO title={data.prismicPoem.data.title.text} />
+      <SEO
+        title={data.prismicPoem.data.title.text}
+        image={
+          data.prismicPoem.data.meta_image.localFile.childImageSharp.fluid.src
+        }
+        description={data.prismicPoem.data.meta_description.text}
+        pathname={location.pathname}
+      />
       <EssayGrid>
         <Mobile>
           <StyledImageBlock
@@ -59,6 +66,27 @@ export const pageQuery = graphql`
         }
         poem {
           html
+        }
+        featured_image {
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+        meta_image {
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+        meta_description {
+          text
         }
       }
     }
