@@ -47,12 +47,6 @@ const Blog = ({ data, location }) => {
           pathname={location.pathname}
         />
       )}
-      <SEO
-        title={data.prismicBlog.data.title.text}
-        description={data.prismicBlog.data.meta_description.text}
-        image={data.prismicBlog.data.featured_image.childImageSharp.fluid.src}
-        pathname={location.pathname}
-      />
       <EssayGrid>
         <Mobile>
           <StyledImageBlock
