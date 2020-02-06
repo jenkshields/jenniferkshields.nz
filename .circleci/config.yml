@@ -40,10 +40,10 @@ jobs:
   release:
     executor: node-executor
     steps:
+      - gatsby-build
       - run:
           name: Install netlify-cli
           command: yarn add netlify-cli
-      - gatsby-build
       - run:
           name: Deploy to netlify
           command: netlify deploy --dir=./public -p
