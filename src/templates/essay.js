@@ -11,7 +11,7 @@ import {
   Body,
   BlockQuote,
 } from "../components/components"
-import { Mobile, Desktop } from "../components/media-queries"
+import { Media } from "../Media"
 import StyledImageBlock from "../components/image-block"
 
 const EssayGrid = styled.div`
@@ -47,7 +47,7 @@ const Essay = ({ data, location }) => {
         description={data.prismicEssay.data.meta_description.text}
       />
       <EssayGrid>
-        <Mobile>
+        <Media lessThan="mobile">
           <StyledImageBlock
             type={data.prismicEssay.type}
             title={data.prismicEssay.data.title.text}
@@ -57,8 +57,8 @@ const Essay = ({ data, location }) => {
             }
             date={data.prismicEssay.data.date}
           />
-        </Mobile>
-        <Desktop>
+        </Media>
+        <Media at="desktop">
           <ImageContainer>
             <Img
               fluid={
@@ -67,13 +67,13 @@ const Essay = ({ data, location }) => {
               }
             />
           </ImageContainer>
-        </Desktop>
+        </Media>
         <EssayContainer>
-          <Desktop>
+          <Media at="desktop">
             <CategoryTitle>{data.prismicEssay.type}</CategoryTitle>
             <Title>{data.prismicEssay.data.title.text}</Title>
             <Date>{data.prismicEssay.data.date}</Date>
-          </Desktop>
+          </Media>
           <Body>
             {data.prismicEssay.data.essay_slice.map(slice => {
               switch (slice.slice_type) {

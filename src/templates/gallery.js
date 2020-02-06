@@ -5,7 +5,7 @@ import { Modal } from "react-overlays"
 import styled from "styled-components"
 import SEO from "../components/seo"
 import StyledImageBlock from "../components/image-block"
-import { Mobile, Desktop } from "../components/media-queries"
+import { Media } from "../Media"
 import x from "../images/x.svg"
 import {
   CategoryTitle,
@@ -165,7 +165,7 @@ const Gallery = ({ data, location }) => {
         }
         pathname={location.pathname}
       />
-      <Mobile>
+      <Media lessThan="mobile">
         <StyledImageBlock
           type={type}
           title={title}
@@ -175,12 +175,12 @@ const Gallery = ({ data, location }) => {
               .fluid
           }
         />
-      </Mobile>
-      <Desktop>
+      </Media>
+      <Media at="desktop">
         <CategoryTitle>{type}</CategoryTitle>
         <Title>{title}</Title>
         <Date>{date}</Date>
-      </Desktop>
+      </Media>
       {data.prismicGallery.data.description.html && (
         <Description
           dangerouslySetInnerHTML={{
@@ -223,7 +223,7 @@ const Gallery = ({ data, location }) => {
         })}
       </GalleryGrid>
 
-      <Desktop>
+      <Media at="desktop">
         {show && (
           <LightboxModal
             show={show}
@@ -246,7 +246,7 @@ const Gallery = ({ data, location }) => {
             </LightboxContentContainer>
           </LightboxModal>
         )}
-      </Desktop>
+      </Media>
     </>
   )
 }

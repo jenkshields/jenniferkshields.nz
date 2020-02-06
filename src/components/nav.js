@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { Modal } from "react-overlays"
 import { Link } from "gatsby"
-import { Mobile, Desktop } from "../components/media-queries"
+import { Media } from "../Media"
 
 import { SiteTitle, Description } from "../components/components"
 import menu from "../images/menu.svg"
@@ -118,7 +118,7 @@ const Nav = ({ siteTitle, bio, location }) => {
 
   return (
     <>
-      <Mobile>
+      <Media lessThan="mobile">
         <Grid>
           <ButtonContainer>
             <CleanButton type="button" onClick={() => setShow(true)}>
@@ -185,9 +185,9 @@ const Nav = ({ siteTitle, bio, location }) => {
             </ModalGrid>
           </NavModal>
         </Grid>
-      </Mobile>
+      </Media>
 
-      <Desktop>
+      <Media at="desktop">
         <NavColumn>
           <div>
             <NavLink to="/">
@@ -202,7 +202,7 @@ const Nav = ({ siteTitle, bio, location }) => {
           <NavLink to="/portfolio">Portfolio</NavLink>
           <NavLink to="/blog">Blog</NavLink>
         </NavColumn>
-      </Desktop>
+      </Media>
     </>
   )
 }

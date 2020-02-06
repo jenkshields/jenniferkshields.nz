@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 
 import SEO from "../components/seo"
 import { Title, Date, CategoryTitle, Body } from "../components/components"
-import { Mobile, Desktop } from "../components/media-queries"
+import { Media } from "../Media"
 import StyledImageBlock from "../components/image-block"
 
 const EssayGrid = styled.div`
@@ -31,19 +31,19 @@ const Poem = ({ data, location }) => {
         pathname={location.pathname}
       />
       <EssayGrid>
-        <Mobile>
+        <Media lessThan="mobile">
           <StyledImageBlock
             type={data.prismicPoem.type}
             title={data.prismicPoem.data.title.text}
             date={data.prismicPoem.data.date}
           />
-        </Mobile>
+        </Media>
         <EssayContainer>
-          <Desktop>
+          <Media at="desktop">
             <CategoryTitle>{data.prismicPoem.type}</CategoryTitle>
             <Title>{data.prismicPoem.data.title.text}</Title>
             <Date>{data.prismicPoem.data.date}</Date>
-          </Desktop>
+          </Media>
           <Body
             dangerouslySetInnerHTML={{
               __html: data.prismicPoem.data.poem.html,

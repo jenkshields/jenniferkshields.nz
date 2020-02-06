@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
 import SEO from "../components/seo"
-import { Mobile } from "../components/media-queries"
+import { Media } from "../Media"
 import { PostGrid, PostItem } from "../components/components"
 import StyledPostBlock from "../components/post-block"
 import StyledImageBlock from "../components/image-block"
@@ -28,14 +28,14 @@ const IndexPage = ({ data }) => (
       }
     />
     <IndexGrid>
-      <Mobile>
+      <Media lessThan="mobile">
         <ImageBlockContainer>
           <StyledImageBlock
             title={data.prismicHomepage.data.title.text}
             bio={data.prismicHomepage.data.bio.text}
           />
         </ImageBlockContainer>
-      </Mobile>
+      </Media>
       <PostGrid>
         {data.allIndexPosts.edges.map(({ node }) => (
           <PostItem>

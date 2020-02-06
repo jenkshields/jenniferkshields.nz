@@ -20,6 +20,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@artsy/fresnel@npm:^1.0.13":
+  version: 1.0.13
+  resolution: "@artsy/fresnel@npm:1.0.13"
+  peerDependencies:
+    react: ^16.3.0
+  checksum: 642409dfdc531762c32f980dab23d6f00c5e7f2b2a352c87c42d286e8f38581456a1d10a505621452147b1b020a42b972268e61b044fbaec34b4280ee476aed2
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.5.5, @babel/code-frame@npm:^7.8.3":
   version: 7.8.3
   resolution: "@babel/code-frame@npm:7.8.3"
@@ -11369,6 +11378,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "jenniferkshields-nz@workspace:."
   dependencies:
+    "@artsy/fresnel": ^1.0.13
     "@babel/core": ^7.8.4
     "@oclif/errors": ^1.2.2
     "@types/react": ^16.9.19

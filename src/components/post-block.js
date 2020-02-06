@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 import BackgroundImage from "gatsby-background-image"
-import { Mobile, Desktop } from "../components/media-queries"
+import { Media } from "../Media"
 
 const OuterWrapper = styled.div`
   width: 100%;
@@ -80,7 +80,7 @@ const PostBlock = ({ uid, featured_image, type, title }) => {
   }
   return (
     <>
-      <Mobile>
+      <Media lessThan="mobile">
         <Link to={`${uid}`}>
           <BackgroundImage
             fluid={ImageData}
@@ -90,8 +90,8 @@ const PostBlock = ({ uid, featured_image, type, title }) => {
         <MobileTitleLink to={`${uid}`}>
           <MobileTitle>{title}</MobileTitle>
         </MobileTitleLink>
-      </Mobile>
-      <Desktop>
+      </Media>
+      <Media at="desktop">
         <BackgroundImage fluid={ImageData} style={computedHeightDesktop}>
           <OuterWrapper>
             <HoverWrapper>
@@ -104,7 +104,7 @@ const PostBlock = ({ uid, featured_image, type, title }) => {
             </HoverWrapper>
           </OuterWrapper>
         </BackgroundImage>
-      </Desktop>
+      </Media>
     </>
   )
 }

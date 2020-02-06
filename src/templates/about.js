@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 
 import SEO from "../components/seo"
 import { Title, Date, CategoryTitle, Body } from "../components/components"
-import { Mobile, Desktop } from "../components/media-queries"
+import { Media } from "../Media"
 import StyledImageBlock from "../components/image-block"
 
 const EssayGrid = styled.div`
@@ -38,7 +38,7 @@ const About = ({ data }) => {
         }
       />
       <EssayGrid>
-        <Mobile>
+        <Media lessThan="mobile">
           <StyledImageBlock
             type={data.prismicAbout.type}
             title={data.prismicAbout.data.title.text}
@@ -47,8 +47,8 @@ const About = ({ data }) => {
             }
             date={data.prismicAbout.data.date}
           />
-        </Mobile>
-        <Desktop>
+        </Media>
+        <Media at="desktop">
           <ImageContainer>
             <Img
               fluid={
@@ -56,13 +56,13 @@ const About = ({ data }) => {
               }
             />
           </ImageContainer>
-        </Desktop>
+        </Media>
         <EssayContainer>
-          <Desktop>
+          <Media at="desktop">
             <CategoryTitle>{data.prismicAbout.type}</CategoryTitle>
             <Title>{data.prismicAbout.data.title.text}</Title>
             <Date>{data.prismicAbout.data.date}</Date>
-          </Desktop>
+          </Media>
           <Body
             dangerouslySetInnerHTML={{
               __html: data.prismicAbout.data.body.html,
