@@ -35,6 +35,10 @@ const EssayContainer = styled.div`
   }
 `
 
+const ImageMedia = styled(Media)`
+  grid-column: 1;
+`
+
 const Essay = ({ data, location }) => {
   return (
     <>
@@ -58,7 +62,7 @@ const Essay = ({ data, location }) => {
             date={data.prismicEssay.data.date}
           />
         </Media>
-        <Media at="desktop">
+        <ImageMedia at="desktop">
           <ImageContainer>
             <Img
               fluid={
@@ -67,7 +71,7 @@ const Essay = ({ data, location }) => {
               }
             />
           </ImageContainer>
-        </Media>
+        </ImageMedia>
         <EssayContainer>
           <Media at="desktop">
             <CategoryTitle>{data.prismicEssay.type}</CategoryTitle>
