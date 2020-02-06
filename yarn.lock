@@ -11370,6 +11370,7 @@ fsevents@^1.2.7:
   resolution: "jenniferkshields-nz@workspace:."
   dependencies:
     "@babel/core": ^7.8.4
+    "@oclif/errors": ^1.2.2
     "@types/react": ^16.9.19
     "@yarnpkg/pnpify": ^2.0.0-rc.17
     babel-plugin-styled-components: ^1.10.6

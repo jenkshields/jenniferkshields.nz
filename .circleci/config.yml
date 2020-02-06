@@ -31,19 +31,16 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - release:
+      - build:
           filters:
             branches:
               only:
                 - master
 jobs:
-  release:
+  build:
     executor: node-executor
     steps:
       - gatsby-build
       - run:
-          name: Install netlify-cli
-          command: yarn add netlify-cli
-      - run:
           name: Deploy to netlify
-          command: netlify deploy --dir=./public -p
+          command: yarn netlify deploy --dir=./public --prod
