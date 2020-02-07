@@ -182,11 +182,11 @@ const Gallery = ({ data, location }) => {
         <Date>{date}</Date>
       </Media>
       {data.prismicGallery.data.description.html && (
-        <Description
-          dangerouslySetInnerHTML={{
+        <Description>
+        <div dangerouslySetInnerHTML={{
             __html: data.prismicGallery.data.description.html,
-          }}
-        />
+          }}></div>
+          </Description>
       )}
       <GalleryGrid>
         {data.prismicGallery.data.images.map(({ image, size, caption }) => {
