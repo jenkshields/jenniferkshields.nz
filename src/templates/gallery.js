@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
-// import { Modal } from "react-overlays"
+import { Modal } from "react-overlays"
 import styled from "styled-components"
 import SEO from "../components/seo"
 import StyledImageBlock from "../components/image-block"
@@ -46,7 +46,7 @@ const ImageButtonPortrait = styled(UnstyledButton)`
   }
 `
 
-const LightboxModal = styled.div`
+const LightboxModal = styled(Modal)`
   position: fixed;
   left: 0;
   right: 0;
