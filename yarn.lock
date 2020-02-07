@@ -5833,13 +5833,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-mediaquery@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "css-mediaquery@npm:0.1.2"
-  checksum: bf4590942994ed2b1903a68b941f996cd1ef66858ae88aa9724dbe891ada31fb31ee381c90fde89e7e1e8789ce37b66fe2ab2a53899a584dbcb829bb24e3184d
-  languageName: node
-  linkType: hard
-
 "css-select-base-adapter@npm:^0.1.1":
   version: 0.1.1
   resolution: "css-select-base-adapter@npm:0.1.1"
@@ -10163,13 +10156,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"hyphenate-style-name@npm:^1.0.0":
-  version: 1.0.3
-  resolution: "hyphenate-style-name@npm:1.0.3"
-  checksum: 18f34e2f299e64d4b96b41167ccbc25f79f5d45d6e332c86a1479d153ffbde119d846c5297684fc81048beb0df6f6fe5835a06a098dc8f343225e88365913279
-  languageName: node
-  linkType: hard
-
 "iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.17, iconv-lite@npm:^0.4.24, iconv-lite@npm:^0.4.4, iconv-lite@npm:~0.4.13":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
@@ -11410,7 +11396,6 @@ fsevents@^1.2.7:
     react-helmet: ^5.2.1
     react-is: ^16.12.0
     react-overlays: ^2.1.0
-    react-responsive: ^8.0.1
     styled-components: ^5.0.0
     typeface-spectral: ^0.0.72
     typeface-spectral-sc: ^0.0.71
@@ -12395,15 +12380,6 @@ fsevents@^1.2.7:
   dependencies:
     object-visit: ^1.0.0
   checksum: 193549cf1b5570e92c72ae19710a84741cc83728f4354ce10c55486d137c38c9ac13a9028576010cc280dbc2133b7f7105ed4d6fdc195de3bafcaae41fbc0582
-  languageName: node
-  linkType: hard
-
-"matchmediaquery@npm:^0.3.0":
-  version: 0.3.1
-  resolution: "matchmediaquery@npm:0.3.1"
-  dependencies:
-    css-mediaquery: ^0.1.2
-  checksum: 4983af02de24260051c1a3301421d1eec3c56861a3f3e9b5d212a5c54d5edad767eabf46242231e9d4f959dd23edf485262bf33586cabceaeb37a01a7e7a9659
   languageName: node
   linkType: hard
 
@@ -15932,20 +15908,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-responsive@npm:^8.0.1":
-  version: 8.0.3
-  resolution: "react-responsive@npm:8.0.3"
-  dependencies:
-    hyphenate-style-name: ^1.0.0
-    matchmediaquery: ^0.3.0
-    prop-types: ^15.6.1
-    shallow-equal: ^1.1.0
-  peerDependencies:
-    react: ^16.8.0
-  checksum: fd07172b39cceebc1a4d6a0e36538aa66cf8b4076e4f5470b107c4530f902b8b7b94522967954fb36749ff5344eef0b77a0d3d073ec7ec450cb1e841f4524432
-  languageName: node
-  linkType: hard
-
 "react-side-effect@npm:^1.1.0":
   version: 1.2.0
   resolution: "react-side-effect@npm:1.2.0"
@@ -17027,13 +16989,6 @@ fsevents@^1.2.7:
   version: 1.2.2
   resolution: "shallow-compare@npm:1.2.2"
   checksum: 1076055512e602905b3b8076e30dd432dc2d07c3e004a9a1740c835f1f36975804559ca02bad126f0bd79eea8b6c4cf09a98b365ff51ff5f1c28e165075ff629
-  languageName: node
-  linkType: hard
-
-"shallow-equal@npm:^1.1.0":
-  version: 1.2.1
-  resolution: "shallow-equal@npm:1.2.1"
-  checksum: 77e9fca4d81b001011df68df75bb563b8bdabe58c7608d6fc13d0c797ab4f37ff2c670ed0904ebe8ebccbd021a3784f492335ef75b5e9aa4ae9ed68c59abc9d5
   languageName: node
   linkType: hard
 
