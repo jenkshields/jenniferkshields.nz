@@ -44,11 +44,13 @@ const Poem = ({ data, location }) => {
             <Title>{data.prismicPoem.data.title.text}</Title>
             <Date>{data.prismicPoem.data.date}</Date>
           </Media>
-          <Body
-            dangerouslySetInnerHTML={{
-              __html: data.prismicPoem.data.poem.html,
-            }}
-          />
+          <Body>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.prismicPoem.data.poem.html,
+              }}
+            ></div>
+          </Body>
         </EssayContainer>
       </EssayGrid>
     </>
