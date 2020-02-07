@@ -45,11 +45,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
   }
 
-  .block-img > img {
-    width: 100%;
-  }
-
-  .gallery-grid = {
+  .gallery-grid {
   display: grid;
   grid-template-columns: 1fr;
 
@@ -60,6 +56,10 @@ const GlobalStyle = createGlobalStyle`
     grid-auto-flow: dense;
   }
 }
+
+  .block-img > img {
+    width: 100%;
+  }
 `
 
 const Grid = styled.div`
