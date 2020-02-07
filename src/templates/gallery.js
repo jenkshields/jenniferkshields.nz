@@ -165,7 +165,7 @@ const Gallery = ({ data, location }) => {
         }
         pathname={location.pathname}
       />
-      <Media lessThan="mobile">
+      <Media at="mobile">
         <StyledImageBlock
           type={type}
           title={title}

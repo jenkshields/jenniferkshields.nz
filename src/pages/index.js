@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => (
       }
     />
     <IndexGrid>
-      <Media lessThan="mobile">
+      <Media at="mobile">
         <ImageBlockContainer>
           <StyledImageBlock
             title={data.prismicHomepage.data.title.text}

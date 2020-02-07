@@ -80,7 +80,7 @@ const PostBlock = ({ uid, featured_image, type, title }) => {
   }
   return (
     <>
-      <Media lessThan="mobile">
+      <Media at="mobile">
         <Link to={`${uid}`}>
           <BackgroundImage
             fluid={ImageData}

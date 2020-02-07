@@ -51,7 +51,7 @@ const Essay = ({ data, location }) => {
         description={data.prismicEssay.data.meta_description.text}
       />
       <EssayGrid>
-        <Media lessThan="mobile">
+        <Media at="mobile">
           <StyledImageBlock
             type={data.prismicEssay.type}
             title={data.prismicEssay.data.title.text}

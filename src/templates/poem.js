@@ -31,7 +31,7 @@ const Poem = ({ data, location }) => {
         pathname={location.pathname}
       />
       <EssayGrid>
-        <Media lessThan="mobile">
+        <Media at="mobile">
           <StyledImageBlock
             type={data.prismicPoem.type}
             title={data.prismicPoem.data.title.text}

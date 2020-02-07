@@ -38,7 +38,7 @@ const About = ({ data }) => {
         }
       />
       <EssayGrid>
-        <Media lessThan="mobile">
+        <Media at="mobile">
           <StyledImageBlock
             type={data.prismicAbout.type}
             title={data.prismicAbout.data.title.text}

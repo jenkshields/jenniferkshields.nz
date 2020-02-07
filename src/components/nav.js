@@ -118,7 +118,7 @@ const Nav = ({ siteTitle, bio, location }) => {
 
   return (
     <>
-      <Media lessThan="mobile">
+      <Media at="mobile">
         <Grid>
           <ButtonContainer>
             <CleanButton type="button" onClick={() => setShow(true)}>

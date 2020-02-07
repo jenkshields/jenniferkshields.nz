@@ -41,7 +41,7 @@ const Portfolio = ({ data, location }) => {
         pathname={location.pathname}
       />
       <EssayGrid>
-        <Media lessThan="mobile">
+        <Media at="mobile">
           <StyledImageBlock
             type={data.prismicPortfolio.type}
             title={data.prismicPortfolio.data.title.text}

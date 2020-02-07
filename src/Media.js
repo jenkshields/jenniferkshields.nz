@@ -2,7 +2,7 @@ import { createMedia } from "@artsy/fresnel"
 
 const QueryBreakpoints = createMedia({
   breakpoints: {
-    mobile: 749,
+    mobile: 0,
     desktop: 750,
   },
 })

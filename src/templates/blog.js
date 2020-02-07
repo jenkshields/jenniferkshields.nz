@@ -50,7 +50,7 @@ const Blog = ({ data, location }) => {
         />
       )}
       <EssayGrid>
-        <Media lessThan="mobile">
+        <Media at="mobile">
           <StyledImageBlock
             type={data.prismicBlog.type}
             title={data.prismicBlog.data.title.text}
