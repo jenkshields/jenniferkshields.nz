@@ -63,11 +63,12 @@ const About = ({ data }) => {
             <Title>{data.prismicAbout.data.title.text}</Title>
             <Date>{data.prismicAbout.data.date}</Date>
           </Media>
-          <Body
-            dangerouslySetInnerHTML={{
+          <Body>
+            <div dangerouslySetInnerHTML={{
               __html: data.prismicAbout.data.body.html,
-            }}
-          />
+            }} />
+          </Body>
+            
         </EssayContainer>
       </EssayGrid>
     </>

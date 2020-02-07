@@ -15,17 +15,17 @@ import {
   Description,
 } from "../components/components"
 
-const GalleryGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
+// const GalleryGrid = styled.div`
+//   display: grid;
+//   grid-template-columns: 1fr;
 
-  @media (min-width: 405px) {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: repeat(auto);
-    grid-gap: 5px;
-    grid-auto-flow: dense;
-  }
-`
+//   @media (min-width: 405px) {
+//     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//     grid-template-rows: repeat(auto);
+//     grid-gap: 5px;
+//     grid-auto-flow: dense;
+//   }
+// `
 
 const GalleryItem = styled(Img)`
   object-fit: cover;
@@ -203,6 +203,7 @@ const Gallery = ({ data, location }) => {
           </LightboxModal>
         )}
       </Media>
+
       {data.prismicGallery.data.description.html && (
         <Description>
           <div
@@ -212,7 +213,8 @@ const Gallery = ({ data, location }) => {
           />
         </Description>
       )}
-      <GalleryGrid>
+
+      <div className="gallery-grid">
         {data.prismicGallery.data.images.map(({ image, size, caption }) => {
           if (size === "Big") {
             return (
@@ -245,7 +247,7 @@ const Gallery = ({ data, location }) => {
             </UnstyledButton>
           )
         })}
-      </GalleryGrid>
+      </div>
     </>
   )
 }

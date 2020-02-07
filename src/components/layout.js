@@ -48,6 +48,18 @@ const GlobalStyle = createGlobalStyle`
   .block-img > img {
     width: 100%;
   }
+
+  .gallery-grid = {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 405px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto);
+    grid-gap: 5px;
+    grid-auto-flow: dense;
+  }
+}
 `
 
 const Grid = styled.div`
