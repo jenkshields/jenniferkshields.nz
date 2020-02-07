@@ -74,9 +74,11 @@ const Portfolio = ({ data, location }) => {
             </PortfolioLink>
           )}
           <Body>
-          <div dangerouslySetInnerHTML={{
-              __html: data.prismicPortfolio.data.body.html,
-            }}></div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.prismicPortfolio.data.body.html,
+              }}
+            />
           </Body>
         </EssayContainer>
       </EssayGrid>

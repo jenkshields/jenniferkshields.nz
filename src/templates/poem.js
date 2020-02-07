@@ -49,7 +49,7 @@ const Poem = ({ data, location }) => {
               dangerouslySetInnerHTML={{
                 __html: data.prismicPoem.data.poem.html,
               }}
-            ></div>
+            />
           </Body>
         </EssayContainer>
       </EssayGrid>

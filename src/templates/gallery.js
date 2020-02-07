@@ -209,7 +209,7 @@ const Gallery = ({ data, location }) => {
             dangerouslySetInnerHTML={{
               __html: data.prismicGallery.data.description.html,
             }}
-          ></div>
+          />
         </Description>
       )}
       <GalleryGrid>
