@@ -15,17 +15,17 @@ import {
   Description,
 } from "../components/components"
 
-// const GalleryGrid = styled.div`
-//   display: grid;
-//   grid-template-columns: 1fr;
+const GalleryGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
 
-//   @media (min-width: 405px) {
-//     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-//     grid-template-rows: repeat(auto);
-//     grid-gap: 5px;
-//     grid-auto-flow: dense;
-//   }
-// `
+  @media (min-width: 405px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto);
+    grid-gap: 5px;
+    grid-auto-flow: dense;
+  }
+`
 
 const GalleryItem = styled(Img)`
   object-fit: cover;
@@ -156,16 +156,7 @@ const Gallery = ({ data, location }) => {
           pathname={location.pathname}
         />
       )}
-      <SEO
-        title={title}
-        description={data.prismicGallery.data.description.text}
-        image={
-          data.prismicGallery.data.meta_image.localFile.childImageSharp.fluid
-            .src
-        }
-        pathname={location.pathname}
-      />
-      <Media at="mobile">
+      {/* <Media at="mobile">
         <StyledImageBlock
           type={type}
           title={title}
@@ -176,33 +167,33 @@ const Gallery = ({ data, location }) => {
           }
         />
       </Media>
-      <Media at="desktop">
-        <CategoryTitle>{type}</CategoryTitle>
-        <Title>{title}</Title>
-        <Date>{date}</Date>
-        {show && (
-          <LightboxModal
-            show={show}
-            onHide={handleClose}
-            renderBackdrop={renderBackdrop}
-          >
-            <LightboxContentContainer>
-              <LightboxButton type="button" onClick={() => setShow(false)}>
-                <CloseImg src={x} />
-              </LightboxButton>
-              <LightboxImageContainer>
-                <LightboxImage
-                  fluid={selectedImage.localFile.childImageSharp.fluid}
-                  style={{
-                    width: `calc(80vh * ${selectedImage.localFile.childImageSharp.fluid.aspectRatio})`,
-                  }}
-                />
-                {caption && <LightboxCaption>{caption}</LightboxCaption>}
-              </LightboxImageContainer>
-            </LightboxContentContainer>
-          </LightboxModal>
-        )}
-      </Media>
+      <Media at="desktop"> */}
+      <CategoryTitle>{type}</CategoryTitle>
+      <Title>{title}</Title>
+      <Date>{date}</Date>
+      {show && (
+        <LightboxModal
+          show={show}
+          onHide={handleClose}
+          renderBackdrop={renderBackdrop}
+        >
+          <LightboxContentContainer>
+            <LightboxButton type="button" onClick={() => setShow(false)}>
+              <CloseImg src={x} />
+            </LightboxButton>
+            <LightboxImageContainer>
+              <LightboxImage
+                fluid={selectedImage.localFile.childImageSharp.fluid}
+                style={{
+                  width: `calc(80vh * ${selectedImage.localFile.childImageSharp.fluid.aspectRatio})`,
+                }}
+              />
+              {caption && <LightboxCaption>{caption}</LightboxCaption>}
+            </LightboxImageContainer>
+          </LightboxContentContainer>
+        </LightboxModal>
+      )}
+      {/* </Media> */}
 
       {data.prismicGallery.data.description.html && (
         <Description>
@@ -214,7 +205,7 @@ const Gallery = ({ data, location }) => {
         </Description>
       )}
 
-      <div className="gallery-grid">
+      <GalleryGrid>
         {data.prismicGallery.data.images.map(({ image, size, caption }) => {
           if (size === "Big") {
             return (
@@ -247,7 +238,7 @@ const Gallery = ({ data, location }) => {
             </UnstyledButton>
           )
         })}
-      </div>
+      </GalleryGrid>
     </>
   )
 }
