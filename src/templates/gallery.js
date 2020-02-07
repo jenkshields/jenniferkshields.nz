@@ -156,7 +156,7 @@ const Gallery = ({ data, location }) => {
           pathname={location.pathname}
         />
       )}
-      {/* <Media at="mobile">
+      <Media at="mobile">
         <StyledImageBlock
           type={type}
           title={title}
@@ -167,33 +167,33 @@ const Gallery = ({ data, location }) => {
           }
         />
       </Media>
-      <Media at="desktop"> */}
-      <CategoryTitle>{type}</CategoryTitle>
-      <Title>{title}</Title>
-      <Date>{date}</Date>
-      {show && (
-        <LightboxModal
-          show={show}
-          onHide={handleClose}
-          renderBackdrop={renderBackdrop}
-        >
-          <LightboxContentContainer>
-            <LightboxButton type="button" onClick={() => setShow(false)}>
-              <CloseImg src={x} />
-            </LightboxButton>
-            <LightboxImageContainer>
-              <LightboxImage
-                fluid={selectedImage.localFile.childImageSharp.fluid}
-                style={{
-                  width: `calc(80vh * ${selectedImage.localFile.childImageSharp.fluid.aspectRatio})`,
-                }}
-              />
-              {caption && <LightboxCaption>{caption}</LightboxCaption>}
-            </LightboxImageContainer>
-          </LightboxContentContainer>
-        </LightboxModal>
-      )}
-      {/* </Media> */}
+      <Media at="desktop">
+        <CategoryTitle>{type}</CategoryTitle>
+        <Title>{title}</Title>
+        <Date>{date}</Date>
+        {show && (
+          <LightboxModal
+            show={show}
+            onHide={handleClose}
+            renderBackdrop={renderBackdrop}
+          >
+            <LightboxContentContainer>
+              <LightboxButton type="button" onClick={() => setShow(false)}>
+                <CloseImg src={x} />
+              </LightboxButton>
+              <LightboxImageContainer>
+                <LightboxImage
+                  fluid={selectedImage.localFile.childImageSharp.fluid}
+                  style={{
+                    width: `calc(80vh * ${selectedImage.localFile.childImageSharp.fluid.aspectRatio})`,
+                  }}
+                />
+                {caption && <LightboxCaption>{caption}</LightboxCaption>}
+              </LightboxImageContainer>
+            </LightboxContentContainer>
+          </LightboxModal>
+        )}
+      </Media>
 
       {data.prismicGallery.data.description.html && (
         <Description>
