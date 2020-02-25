@@ -19,7 +19,7 @@ const EssayGrid = styled.div`
   grid-template-columns: 1fr;
 
   @media (min-width: 750px) {
-    grid-template-columns: 15vw 50vw;
+    grid-template-columns: 20vw 45vw;
   }
 `
 
@@ -31,7 +31,7 @@ const EssayContainer = styled.div`
   @media (min-width: 750px) {
     grid-column: 2;
     padding-left: 1vw;
-    width: 50vw;
+    width: 45vw;
   }
 `
 
@@ -59,7 +59,12 @@ const Essay = ({ data, location }) => {
         </Media>
         <ImageMedia at="desktop">
           <ImageContainer>
-            <Img fluid={data.prismicEssay.data.featured_image.fluid} />
+            <Img
+              fluid={data.prismicEssay.data.featured_image.fluid}
+              style={{
+                height: `calc(18vw * ${data.prismicEssay.data.featured_image.fluid.aspectRatio})`,
+              }}
+            />
           </ImageContainer>
         </ImageMedia>
         <EssayContainer>
@@ -112,6 +117,7 @@ export const pageQuery = graphql`
         featured_image {
           fluid(maxWidth: 1600) {
             ...GatsbyPrismicImageFluid
+            aspectRatio
           }
         }
         meta_image {

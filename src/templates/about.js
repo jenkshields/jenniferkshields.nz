@@ -46,7 +46,12 @@ const About = ({ data }) => {
         </Media>
         <Media at="desktop">
           <ImageContainer>
-            <Img fluid={data.prismicAbout.data.profile.fluid} />
+            <Img
+              fluid={data.prismicAbout.data.profile.fluid}
+              style={{
+                height: `calc(18vw * ${data.prismicAbout.data.profile.fluid.aspectRatio})`,
+              }}
+            />
           </ImageContainer>
         </Media>
         <EssayContainer>
@@ -80,6 +85,7 @@ export const pageQuery = graphql`
         profile {
           fluid(maxWidth: 1600) {
             ...GatsbyPrismicImageFluid
+            aspectRatio
           }
         }
         body {
