@@ -39,12 +39,8 @@ export const pageQuery = graphql`
               text
             }
             featured_image {
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1000) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
+              fluid(maxWidth: 1000) {
+                ...GatsbyPrismicImageFluid
               }
             }
           }

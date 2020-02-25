@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import styled, { createGlobalStyle } from "styled-components"
 
 import Nav from "./nav.js"
+import { usePrismicHomepage } from "../hooks/usePrismicHomepage"
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -109,31 +110,14 @@ const variants = {
 }
 
 const Layout = ({ children, location }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      prismicHomepage {
-        data {
-          title {
-            text
-          }
-          bio {
-            text
-          }
-        }
-      }
-    }
-  `)
+  const { title, bio } = usePrismicHomepage()
 
   return (
     <>
       <GlobalStyle />
       <Grid>
         <NavContainer>
-          <Nav
-            siteTitle={data.prismicHomepage.data.title.text}
-            bio={data.prismicHomepage.data.bio.text}
-            location={location}
-          />
+          <Nav siteTitle={title.text} bio={bio.text} location={location} />
         </NavContainer>
         <AnimatePresence>
           <motion.main

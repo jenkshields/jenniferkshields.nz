@@ -44,9 +44,7 @@ const Essay = ({ data, location }) => {
     <>
       <SEO
         title={data.prismicEssay.data.title.text}
-        image={
-          data.prismicEssay.data.meta_image.localFile.childImageSharp.fluid.src
-        }
+        image={data.prismicEssay.data.meta_image.fluid.src}
         pathname={location.pathname}
         description={data.prismicEssay.data.meta_description.text}
       />
@@ -55,21 +53,13 @@ const Essay = ({ data, location }) => {
           <StyledImageBlock
             type={data.prismicEssay.type}
             title={data.prismicEssay.data.title.text}
-            featured_image={
-              data.prismicEssay.data.featured_image.localFile.childImageSharp
-                .fluid
-            }
+            featured_image={data.prismicEssay.data.featured_image.fluid}
             date={data.prismicEssay.data.date}
           />
         </Media>
         <ImageMedia at="desktop">
           <ImageContainer>
-            <Img
-              fluid={
-                data.prismicEssay.data.featured_image.localFile.childImageSharp
-                  .fluid
-              }
-            />
+            <Img fluid={data.prismicEssay.data.featured_image.fluid} />
           </ImageContainer>
         </ImageMedia>
         <EssayContainer>
@@ -120,21 +110,13 @@ export const pageQuery = graphql`
         date(formatString: "Do MMM YYYY")
         featured
         featured_image {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1600) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
+          fluid(maxWidth: 1600) {
+            ...GatsbyPrismicImageFluid
           }
         }
         meta_image {
-          localFile {
-            childImageSharp {
-              fluid {
-                src
-              }
-            }
+          fluid {
+            src
           }
         }
         meta_description {

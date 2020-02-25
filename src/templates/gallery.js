@@ -139,20 +139,14 @@ const Gallery = ({ data, location }) => {
         <SEO
           title={title}
           description={data.prismicGallery.data.meta_description.text}
-          image={
-            data.prismicGallery.data.meta_image.localFile.childImageSharp.fluid
-              .src
-          }
+          image={data.prismicGallery.data.meta_image.fluid.src}
           pathname={location.pathname}
         />
       ) : (
         <SEO
           title={title}
           description={data.prismicGallery.data.description.text}
-          image={
-            data.prismicGallery.data.meta_image.localFile.childImageSharp.fluid
-              .src
-          }
+          image={data.prismicGallery.data.meta_image.fluid.src}
           pathname={location.pathname}
         />
       )}
@@ -161,10 +155,7 @@ const Gallery = ({ data, location }) => {
           type={type}
           title={title}
           date={date}
-          featured_image={
-            data.prismicGallery.data.featured_image.localFile.childImageSharp
-              .fluid
-          }
+          featured_image={data.prismicGallery.data.featured_image.fluid}
         />
       </Media>
       <Media at="desktop">
@@ -183,9 +174,9 @@ const Gallery = ({ data, location }) => {
               </LightboxButton>
               <LightboxImageContainer>
                 <LightboxImage
-                  fluid={selectedImage.localFile.childImageSharp.fluid}
+                  fluid={selectedImage.fluid}
                   style={{
-                    width: `calc(80vh * ${selectedImage.localFile.childImageSharp.fluid.aspectRatio})`,
+                    width: `calc(80vh * ${selectedImage.fluid.aspectRatio})`,
                   }}
                 />
                 {caption && <LightboxCaption>{caption}</LightboxCaption>}
@@ -211,8 +202,8 @@ const Gallery = ({ data, location }) => {
             return (
               <ImageButtonBig onClick={() => imageClicked(image, caption)}>
                 <GalleryItem
-                  fluid={image.localFile.childImageSharp.fluid}
-                  key={image.localFile.id}
+                  fluid={image.fluid}
+                  key={image.url}
                   alt={image.alt}
                 />
               </ImageButtonBig>
@@ -221,8 +212,8 @@ const Gallery = ({ data, location }) => {
             return (
               <ImageButtonPortrait onClick={() => imageClicked(image, caption)}>
                 <GalleryItem
-                  fluid={image.localFile.childImageSharp.fluid}
-                  key={image.localFile.id}
+                  fluid={image.fluid}
+                  key={image.url}
                   alt={image.alt}
                 />
               </ImageButtonPortrait>
@@ -231,8 +222,8 @@ const Gallery = ({ data, location }) => {
           return (
             <UnstyledButton onClick={() => imageClicked(image, caption)}>
               <GalleryItem
-                fluid={image.localFile.childImageSharp.fluid}
-                key={image.localFile.id}
+                fluid={image.fluid}
+                key={image.url}
                 alt={image.alt}
               />
             </UnstyledButton>
@@ -257,21 +248,13 @@ export const pageQuery = graphql`
           text
         }
         featured_image {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
+          fluid(maxWidth: 1600) {
+            ...GatsbyPrismicImageFluid
           }
         }
         meta_image {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1200) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
+          fluid(maxWidth: 1200) {
+            ...GatsbyPrismicImageFluid
           }
         }
         meta_description {
@@ -280,15 +263,11 @@ export const pageQuery = graphql`
         images {
           image {
             alt
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1600) {
-                  aspectRatio
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-              id
+            fluid(maxWidth: 1600) {
+              aspectRatio
+              ...GatsbyPrismicImageFluid
             }
+            url
           }
           caption {
             text

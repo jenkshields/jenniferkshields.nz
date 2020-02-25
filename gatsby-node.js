@@ -123,65 +123,100 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  const typeDefs = `
-        interface indexPosts @nodeInterface {
-            id: ID!
-            uid: String!
-            data: Data!
-            type: String!
-        }
+// exports.createSchemaCustomization = ({ actions }) => {
+//   const { createTypes } = actions
+//   const typeDefs = `
+//         interface indexPosts @nodeInterface {
+//             id: ID!
+//             uid: String!
+//             data: Data!
+//             type: String!
+//         }
 
-        type Data {
-            title: Title!
-            date: Date! @dateformat
-            featured: String!
-            featured_image: Featured_image!
-            body: Body
-        }
+//         type Data {
+//             title: Title!
+//             date: Date! @dateformat
+//             featured: String!
+//             featured_image: Featured_image!
+//             body: Body
+//             meta_description: Meta_description
+//             meta_image: Meta_image
+//             link: Link
+//             images: Images
+//             poem: Poem
+//         }
 
-        type Title {
-            text: String!
-        }
+//         type Title {
+//             text: String!
+//         }
 
-        type Featured_image {
-            localFile: File
-        }
+//         type Featured_image {
+//             localFile: File
+//         }
 
-        type Body {
-          html: String!
-        }
+//         type Body {
+//           html: String!
+//         }
 
-        type PrismicGallery implements Node & indexPosts {
-            uid: String!
-            data: Data!
-            type: String!
-        }
+//         type Meta_description {
+//           text: String!
+//         }
 
-        type PrismicEssay implements Node & indexPosts {
-            uid: String!
-            data: Data!
-            type: String!
-        }
+//         type Meta_image {
+//           localFile: File
+//         }
 
-        type PrismicPoem implements Node & indexPosts {
-          uid: String!
-          data: Data!
-          type: String!
-      }
+//         type Link {
+//           url: String
+//         }
 
-      type PrismicPortfolio implements Node & indexPosts {
-        uid: String!
-        data: Data!
-        type: String!
-    }
+//         type Images {
+//           image: Image
+//           caption: Caption
+//         }
 
-    type PrismicBlog implements Node & indexPosts {
-      uid: String!
-      data: Data!
-      type: String!
-  }
-    `
-  createTypes(typeDefs)
-}
+//         type Image {
+//           alt: String
+//           localFile: File
+//         }
+
+//         type Caption {
+//           text: String
+//         }
+
+//         type Poem {
+//           html: String
+//         }
+
+//         type PrismicGallery implements Node & indexPosts {
+//             uid: String!
+//             data: Data!
+//             type: String!
+//         }
+
+//         type PrismicEssay implements Node & indexPosts {
+//             uid: String!
+//             data: Data!
+//             type: String!
+//         }
+
+//         type PrismicPoem implements Node & indexPosts {
+//           uid: String!
+//           data: Data!
+//           type: String!
+//       }
+
+//       type PrismicPortfolio implements Node & indexPosts {
+//         uid: String!
+//         data: Data!
+//         type: String!
+//     }
+
+//     type PrismicBlog implements Node & indexPosts {
+//       uid: String!
+//       data: Data!
+//       type: String!
+//   }
+//     `
+//   createTypes(typeDefs)
+// }

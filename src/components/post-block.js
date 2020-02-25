@@ -71,12 +71,12 @@ const StyledInnerWrapper = styled.div`
 `
 
 const PostBlock = ({ uid, featured_image, type, title }) => {
-  const ImageData = featured_image.localFile.childImageSharp.fluid
+  const ImageData = featured_image.fluid
   const computedHeightDesktop = {
-    height: `calc(33vw / ${featured_image.localFile.childImageSharp.fluid.aspectRatio})`,
+    height: `calc(33vw / ${featured_image.fluid.aspectRatio})`,
   }
   const computedHeightMobile = {
-    height: `calc(85vw / ${featured_image.localFile.childImageSharp.fluid.aspectRatio})`,
+    height: `calc(85vw / ${featured_image.fluid.aspectRatio})`,
   }
   return (
     <>

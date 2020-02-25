@@ -34,10 +34,7 @@ const Portfolio = ({ data, location }) => {
       <SEO
         title={data.prismicPortfolio.data.title.text}
         description={data.prismicPortfolio.data.meta_description.text}
-        image={
-          data.prismicPortfolio.data.meta_image.localFile.childImageSharp.fluid
-            .src
-        }
+        image={data.prismicPortfolio.data.meta_image.fluid.src}
         pathname={location.pathname}
       />
       <EssayGrid>
@@ -45,10 +42,7 @@ const Portfolio = ({ data, location }) => {
           <StyledImageBlock
             type={data.prismicPortfolio.type}
             title={data.prismicPortfolio.data.title.text}
-            featured_image={
-              data.prismicPortfolio.data.featured_image.localFile
-                .childImageSharp.fluid
-            }
+            featured_image={data.prismicPortfolio.data.featured_image.fluid}
             date={data.prismicPortfolio.data.date}
           />
         </Media>
@@ -58,12 +52,7 @@ const Portfolio = ({ data, location }) => {
             <Title>{data.prismicPortfolio.data.title.text}</Title>
             <Date>{data.prismicPortfolio.data.date}</Date>
             <ImageContainer>
-              <Img
-                fluid={
-                  data.prismicPortfolio.data.featured_image.localFile
-                    .childImageSharp.fluid
-                }
-              />
+              <Img fluid={data.prismicPortfolio.data.featured_image.fluid} />
             </ImageContainer>
           </Media>
           {data.prismicPortfolio.data.link && (
@@ -98,21 +87,13 @@ export const pageQuery = graphql`
         date(formatString: "Do MMM YYYY")
         featured
         featured_image {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1600) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
+          fluid(maxWidth: 1600) {
+            ...GatsbyPrismicImageFluid
           }
         }
         meta_image {
-          localFile {
-            childImageSharp {
-              fluid {
-                src
-              }
-            }
+          fluid {
+            src
           }
         }
         meta_description {

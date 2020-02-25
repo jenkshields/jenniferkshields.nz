@@ -24,9 +24,7 @@ const Poem = ({ data, location }) => {
     <>
       <SEO
         title={data.prismicPoem.data.title.text}
-        image={
-          data.prismicPoem.data.meta_image.localFile.childImageSharp.fluid.src
-        }
+        image={data.prismicPoem.data.meta_image.fluid.src}
         description={data.prismicPoem.data.meta_description.text}
         pathname={location.pathname}
       />
@@ -70,21 +68,13 @@ export const pageQuery = graphql`
           html
         }
         featured_image {
-          localFile {
-            childImageSharp {
-              fluid {
-                src
-              }
-            }
+          fluid(maxWidth: 1600) {
+            ...GatsbyPrismicImageFluid
           }
         }
         meta_image {
-          localFile {
-            childImageSharp {
-              fluid {
-                src
-              }
-            }
+          fluid {
+            src
           }
         }
         meta_description {

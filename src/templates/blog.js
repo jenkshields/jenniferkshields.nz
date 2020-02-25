@@ -36,16 +36,13 @@ const Blog = ({ data, location }) => {
         <SEO
           title={data.prismicBlog.data.title.text}
           description={data.prismicBlog.data.meta_description.text}
-          image={
-            data.prismicBlog.data.featured_image.localFile.childImageSharp.fluid
-              .src
-          }
+          image={data.prismicBlog.data.featured_image.fluid.src}
           pathname={location.pathname}
         />
       ) : (
         <SEO
           title={data.prismicBlog.data.title.text}
-          image={data.prismicBlog.data.featured_image.childImageSharp.fluid.src}
+          image={data.prismicBlog.data.featured_image.fluid.src}
           pathname={location.pathname}
         />
       )}
@@ -54,10 +51,7 @@ const Blog = ({ data, location }) => {
           <StyledImageBlock
             type={data.prismicBlog.type}
             title={data.prismicBlog.data.title.text}
-            featured_image={
-              data.prismicBlog.data.featured_image.localFile.childImageSharp
-                .fluid
-            }
+            featured_image={data.prismicBlog.data.featured_image.fluid}
             date={data.prismicBlog.data.date}
           />
         </Media>
@@ -67,12 +61,7 @@ const Blog = ({ data, location }) => {
             <Title>{data.prismicBlog.data.title.text}</Title>
             <Date>{data.prismicBlog.data.date}</Date>
             <ImageContainer>
-              <Img
-                fluid={
-                  data.prismicBlog.data.featured_image.localFile.childImageSharp
-                    .fluid
-                }
-              />
+              <Img fluid={data.prismicBlog.data.featured_image.fluid} />
             </ImageContainer>
           </Media>
           <Body>
@@ -126,23 +115,15 @@ export const pageQuery = graphql`
           text
         }
         meta_image {
-          localFile {
-            childImageSharp {
-              fluid {
-                src
-              }
-            }
+          fluid {
+            src
           }
         }
         date(formatString: "Do MMM YYYY")
         featured
         featured_image {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1600) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
+          fluid(maxWidth: 1600) {
+            ...GatsbyPrismicImageFluid
           }
         }
         body1 {
