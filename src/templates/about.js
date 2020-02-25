@@ -33,28 +33,20 @@ const About = ({ data }) => {
     <>
       <SEO
         title={data.prismicAbout.data.title.text}
-        image={
-          data.prismicAbout.data.profile.localFile.childImageSharp.fluid.src
-        }
+        image={data.prismicAbout.data.profile.fluid.src}
       />
       <EssayGrid>
         <Media at="mobile">
           <StyledImageBlock
             type={data.prismicAbout.type}
             title={data.prismicAbout.data.title.text}
-            featured_image={
-              data.prismicAbout.data.profile.localFile.childImageSharp.fluid
-            }
+            featured_image={data.prismicAbout.data.profile.fluid}
             date={data.prismicAbout.data.date}
           />
         </Media>
         <Media at="desktop">
           <ImageContainer>
-            <Img
-              fluid={
-                data.prismicAbout.data.profile.localFile.childImageSharp.fluid
-              }
-            />
+            <Img fluid={data.prismicAbout.data.profile.fluid} />
           </ImageContainer>
         </Media>
         <EssayContainer>
@@ -64,11 +56,12 @@ const About = ({ data }) => {
             <Date>{data.prismicAbout.data.date}</Date>
           </Media>
           <Body>
-            <div dangerouslySetInnerHTML={{
-              __html: data.prismicAbout.data.body.html,
-            }} />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.prismicAbout.data.body.html,
+              }}
+            />
           </Body>
-            
         </EssayContainer>
       </EssayGrid>
     </>
@@ -85,12 +78,8 @@ export const pageQuery = graphql`
           text
         }
         profile {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1600) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
+          fluid(maxWidth: 1600) {
+            ...GatsbyPrismicImageFluid
           }
         }
         body {
