@@ -180,7 +180,7 @@ const Nav = ({ siteTitle, bio, location }) => {
                   Blog
                 </NavLinkButton>
               ) : (
-                <NavLink to="/blog">Blog</NavLink>
+                <a href="https://blog.jenniferkshields.nz">Blog</a>
               )}
             </ModalGrid>
           </NavModal>
